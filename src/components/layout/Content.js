@@ -1,9 +1,9 @@
 import React from "react";
-import { Tasks } from "../Tasks.component";
 import { Sidebar } from "./Sidebar";
+import { Tasks } from "../Tasks";
 
 export const Content = () => (
-  <section>
+  <section className="content">
     <Sidebar />
     <Tasks />
   </section>

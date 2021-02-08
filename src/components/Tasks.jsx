@@ -1,6 +1,6 @@
 import React from "react";
 import { useTasks } from "../hooks";
-import { Checkbox } from "./Checkbox.component";
+import { Checkbox } from "./Checkbox";
 
 export const Tasks = () => {
   const { tasks } = useTasks("1"); // get them from the db and show here

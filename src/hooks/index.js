@@ -60,7 +60,7 @@ export const useProjects = () => {
   useEffect(() => {
     firebase
       .firestore()
-      .collections("projects")
+      .collection("projects")
       .where("userId", "==", "t25h0csH6Pmxra90")
       .orderBy("projectId")
       .get() // so we get them only once, not like in the upper func.
@@ -69,10 +69,13 @@ export const useProjects = () => {
           ...x.data(),
           docId: x.id,
         }));
+
+        // must keep the if statement so it won't re-run again and again infinitely, and we must be certain that the project has been changed, so THAN the useEffect hook to take action, fire off.
         if (JSON.stringify(allProjects) !== JSON.stringify(projects)) {
           setProjects(allProjects);
         }
       });
   }, [projects]);
+
   return { projects, setProjects };
 };
