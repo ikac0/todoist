@@ -244,7 +244,6 @@ header {
 }
 
 // sidebar///////////////////////////////////////////////////////////////////////////
-
 .sidebar {
   @include no-select();
   width: 266px;
@@ -285,7 +284,7 @@ header {
     }
 
     &-delete {
-      margin-left: auto;
+      margin-left: 50px;
       display: none;
 
       svg {
@@ -350,7 +349,7 @@ header {
     cursor: pointer;
 
     span {
-      color: #00008a;
+      color: #0000008a;
       margin-right: 10px;
 
       svg.hidden-projects {
@@ -410,6 +409,38 @@ header {
         font-weight: bold;
         background-color: white;
       }
+    }
+  }
+}
+
+/* Show Confirm Delete
+  ============================================ */
+.project-delete-modal {
+  position: relative;
+
+  &__inner {
+    @include box-overlay();
+    z-index: 99;
+    width: 200px;
+    padding: 10px;
+    top: 10px;
+    right: 0;
+    background-color: white;
+
+    p {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      line-height: normal;
+      font-weight: normal;
+      font-size: 15px;
+    }
+
+    button {
+      @include btn("50px");
+    }
+    span {
+      @include cancel();
+      font-weight: normal;
     }
   }
 }

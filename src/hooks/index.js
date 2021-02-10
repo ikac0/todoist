@@ -72,6 +72,7 @@ export const useProjects = () => {
 
         // must keep the if statement so it won't re-run again and again infinitely, and we must be certain that the project has been changed, so THAN the useEffect hook to take action, fire off.
         if (JSON.stringify(allProjects) !== JSON.stringify(projects)) {
+          // stringified comparison
           setProjects(allProjects);
         }
       });
