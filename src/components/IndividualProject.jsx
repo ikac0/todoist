@@ -9,8 +9,6 @@ export const IndividualProject = ({ project }) => {
   const { projects, setProjects } = useProjectsValue;
   const { setSelectedProject } = useSelectedProjectValue();
 
-  console.log("projects ===", projects);
-
   const deleteProject = (docId) => {
     firebase
       .firestore()
@@ -56,3 +54,5 @@ export const IndividualProject = ({ project }) => {
     </>
   );
 };
+
+// @include mq("200") {display: none;} needs to be changed to 900px; app.scss 258;

@@ -141,7 +141,7 @@ $generic-bg: #db4c3f;
   }
 }
 
-//// Header ////////////////////////////////////////////////////////
+//// Header ////////////////////////////////////////////////////////////////////////////////////
 header {
   border-bottom: solid 1px #ca2100;
   background-color: $generic-bg;
@@ -260,6 +260,9 @@ nav {
   }
 
   li {
+    padding-left: 10px;
+    padding-right: 15px;
+
     &:hover .sidebar__project-delete {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -268,6 +271,8 @@ nav {
   }
 
   &__project {
+    padding: 5px 0;
+    margin-bottom: 2px;
     cursor: pointer;
 
     div:nth-child(1) {
@@ -278,9 +283,11 @@ nav {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
+      flex-direction: column;
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
+      background-color: rgba(255, 255, 255, 0.6);
     }
 
     &-delete {
@@ -379,6 +386,7 @@ nav {
       font-size: 15px;
       padding-left: 0;
       padding-right: 0;
+      // margin-bottom: 10px;
 
       div:nth-child(1) {
         display: -webkit-box;
@@ -435,7 +443,7 @@ nav {
     }
 
     button {
-      @include btn("50px");
+      @include btn("150px");
     }
     span {
       @include cancel();

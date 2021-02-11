@@ -3,9 +3,7 @@ import { useTasks } from "../hooks";
 import { Checkbox } from "./Checkbox.jsx";
 
 export const Tasks = () => {
-  const { tasks } = useTasks("1"); // get them from the db and show here
-  console.log("tasks ->>", tasks);
-
+  const { tasks } = useTasks("1"); // get them from the db and show here, using the custom hook with a STRING value, since we specified that it needs to be a string in the fields
   const projectName = "";
 
   return (
@@ -13,7 +11,7 @@ export const Tasks = () => {
       <h2>{projectName}</h2>
       <ul className="tasks__list">
         {tasks.map((task) => (
-          <li key={`${task.id}`}>
+          <li key={`${task.projectId}`}>
             {/* so we can tick them /check */}
             <Checkbox id={task.id} />
             {/* so we can display the content that we pull from the db */}
