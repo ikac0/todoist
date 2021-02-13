@@ -7,7 +7,6 @@ import {
 } from "react-icons/fa";
 import { useSelectedProjectValue } from "../../context";
 import { AddProject } from "../AddProject";
-import { IndividualProject } from "../IndividualProject";
 import { Projects } from "../Projects";
 
 export const Sidebar = () => {
@@ -18,33 +17,56 @@ export const Sidebar = () => {
   return (
     <div className="sidebar">
       <ul className="sidebar__generic">
-        <li className="inbox">
+        <li
+          className={active === "inbox" ? "active" : undefined}
+          onClick={() => {
+            setActive("inbox");
+            setSelectedProject("INBOX");
+          }}
+        >
           <span>
             <FaInbox />
           </span>
           <span>Inbox</span>
         </li>
-        <li className="today">
+        <li
+          className={active === "today" ? "active" : undefined}
+          onClick={() => {
+            setActive("today");
+            setSelectedProject("TODAY");
+          }}
+        >
           <span>
             <FaRegCalendar />
           </span>
           <span>Today</span>
         </li>
-        <li className="next_7">
+        <li
+          className={active === "next_7" ? "active" : "undefined"}
+          onClick={() => {
+            setActive("next_7");
+            setSelectedProject("NEXT_7");
+          }}
+        >
           <span>
             <FaRegCalendarAlt />
           </span>
           <span>Next 7 Days</span>
         </li>
       </ul>
-      <div className="sidebar__middle">
+      <div
+        className="sidebar__middle"
+        onClick={() => setShowProjects(!showProjects)}
+      >
         <span>
-          <FaChevronDown />
+          <FaChevronDown
+            className={!showProjects ? "hidden-projects" : undefined}
+          />
         </span>
         <h2>Projects</h2>
       </div>
       <ul className="sidebar__projects">{showProjects && <Projects />}</ul>
-      <AddProject />
+      {showProjects && <AddProject />}
     </div>
   );
 };

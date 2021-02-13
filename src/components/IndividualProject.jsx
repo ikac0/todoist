@@ -6,7 +6,7 @@ import { firebase } from "../firebase";
 
 export const IndividualProject = ({ project }) => {
   const [showConfirm, setShowConfirm] = useState(false);
-  const { projects, setProjects } = useProjectsValue;
+  const { projects, setProjects } = useProjectsValue();
   const { setSelectedProject } = useSelectedProjectValue();
 
   const deleteProject = (docId) => {
@@ -31,7 +31,6 @@ export const IndividualProject = ({ project }) => {
         onKeyDown={(e) => {
           if (e.key === "Enter") setShowConfirm(!showConfirm);
         }}
-        tabIndex={0}
         role="button"
         aria-label="Confirm deletion of project"
       >
