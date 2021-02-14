@@ -19,6 +19,8 @@ export const Header = ({ darkMode, setDarkMode }) => {
               onClick={() => {
                 setShowQuickAddTask(true);
                 setShouldShowMain(true);
+                // setShowProjectOverlay(false);
+                // setShowQuickAddTask(false);
               }}
             >
               +

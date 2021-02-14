@@ -8,7 +8,7 @@ export const AddProject = ({ shouldShow = false }) => {
   const [projectName, setProjectName] = useState("");
 
   const projectId = generatePushId();
-  const { setProjects } = useProjectsValue(); // go to firebase, get the new projects, and update
+  const { projects, setProjects } = useProjectsValue(); // go to firebase, get the new projects, and update
 
   const addProject = () =>
     projectName &&
@@ -21,7 +21,7 @@ export const AddProject = ({ shouldShow = false }) => {
         userId: "t25h0csH6Pmxra90",
       })
       .then(() => {
-        setProjects([]);
+        setProjects([...projects]); // just in case, so it will never have an empty array[]
         setProjectName("");
         setShow(false);
       });

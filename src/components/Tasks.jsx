@@ -13,20 +13,22 @@ export const Tasks = () => {
 
   let projectName = "";
 
-  if (projects && selectedProject && !collatedTasksExist(selectedProject)) {
+  if (
+    projects &&
+    projects.length > 0 &&
+    selectedProject &&
+    !collatedTasksExist(selectedProject)
+  ) {
     projectName = getTitle(projects, selectedProject).name;
-    console.log("projectName 1: ", projectName);
   }
 
   if (collatedTasksExist(selectedProject) && selectedProject) {
     projectName = getCollatedTitle(collatedTasks, selectedProject).name;
-    console.log("projectName 2: ", projectName);
   }
 
   useEffect(() => {
     document.title = `${projectName}: Todoist`; // to change the title of the page
   });
-  console.log("tasks - ", tasks);
 
   return (
     <div className="tasks">
