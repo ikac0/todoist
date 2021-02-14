@@ -24,7 +24,7 @@ export const Sidebar = () => {
             setSelectedProject("INBOX");
           }}
         >
-          <span>
+          <span className="sidebar__generic-icon">
             <FaInbox />
           </span>
           <span>Inbox</span>
@@ -36,19 +36,19 @@ export const Sidebar = () => {
             setSelectedProject("TODAY");
           }}
         >
-          <span>
+          <span className="sidebar__generic-icon">
             <FaRegCalendar />
           </span>
           <span>Today</span>
         </li>
         <li
-          className={active === "next_7" ? "active" : "undefined"}
+          className={active === "next_7" ? "active" : undefined}
           onClick={() => {
             setActive("next_7");
             setSelectedProject("NEXT_7");
           }}
         >
-          <span>
+          <span className="sidebar__generic-icon">
             <FaRegCalendarAlt />
           </span>
           <span>Next 7 Days</span>
