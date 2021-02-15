@@ -133,11 +133,30 @@ $generic-bg: #db4c3f;
 
 //// Darkmode ///////////////////////////////////////////////////////////////////////////////////
 .darkmode {
+  background-color: #262626;
+
   header {
     -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
-    background-color: #282828;
+    background-color: #262626;
     border-color: transparent;
+  }
+  .sidebar {
+    background-color: #262626;
+    color: red;
+  }
+  .tasks {
+    color: orange;
+    background-color: #1a1a1a;
+  }
+  .add-task__cancel {
+    color: #db4c3f;
+  }
+  .sidebar__generic-icon {
+    color: #fafafa;
+  }
+  .sidebar__generic span {
+    color: red;
   }
 }
 
@@ -433,7 +452,7 @@ nav {
   &__inner {
     @include box-overlay();
     z-index: 99;
-    width: 200px;
+    min-width: 200px;
     padding: 10px;
     top: 10px;
     right: 0;
