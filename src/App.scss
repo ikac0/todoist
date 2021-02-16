@@ -133,30 +133,46 @@ $generic-bg: #db4c3f;
 
 //// Darkmode ///////////////////////////////////////////////////////////////////////////////////
 .darkmode {
-  background-color: #262626;
+  background-color: rgb(40, 40, 40);
 
   header {
     -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
-    background-color: #262626;
+    background-color: rgb(40, 40, 40);
     border-color: transparent;
   }
+
   .sidebar {
-    background-color: #262626;
-    color: red;
+    background-color: #282828;
+
+    li {
+      color: white;
+    }
   }
+
+  .sidebar__middle {
+    border-bottom: 1px solid #505050;
+
+    h2 {
+      color: #d9d9d9;
+    }
+  }
+  .sidebar__generic li.active,
+  .sidebar__generic li:hover {
+    font-weight: bold;
+    background-color: #363636;
+  }
+
   .tasks {
-    color: orange;
-    background-color: #1a1a1a;
-  }
-  .add-task__cancel {
-    color: #db4c3f;
-  }
-  .sidebar__generic-icon {
-    color: #fafafa;
-  }
-  .sidebar__generic span {
-    color: red;
+    // color: rgb(235, 113, 102);
+    color: rgb(40, 40, 40);
+    background-color: rgb(31, 31, 31);
+
+    h2 {
+      color: #e2e2e2;
+      font-weight: bolder;
+      letter-spacing: 1px;
+    }
   }
 }
 
@@ -178,6 +194,7 @@ header {
     padding: 0 10px;
   }
 }
+
 nav {
   display: grid;
   -webkit-box-align: center;
@@ -268,6 +285,7 @@ nav {
   width: 266px;
   height: calc(100vh);
   padding-top: 74px;
+  padding-left: 35px;
   position: fixed;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -321,7 +339,7 @@ nav {
     &.active,
     &:hover {
       font-weight: bold;
-      background-color: white;
+      background-color: rgb(54, 54, 54);
     }
 
     &:nth-child(1) {
@@ -395,17 +413,16 @@ nav {
 
   &__generic {
     li {
-      list-style-type: none;
-      color: #333;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      cursor: pointer;
-      line-height: 1.5;
+      min-height: 24px;
       font-size: 15px;
-      padding-left: 0;
-      padding-right: 0;
-      margin-bottom: 10px;
+      color: #333;
+      list-style: none;
+      cursor: pointer;
+      padding: 5px 16px 5px 5px;
+      -webkit-transition: color 0.2s ease-in, background-color 0.2s ease-in;
+      transition: color 0.2s ease-in, background-color 0.2s ease-in;
+      line-height: 1.5;
+      border-radius: 3px;
 
       div:nth-child(1) {
         display: -webkit-box;
@@ -485,7 +502,8 @@ nav {
   align-items: center;
   grid-template-columns: 1fr auto;
   max-width: 922px;
-  margin: auto;
+  margin-left: 35px;
+  margin-right: 30px;
 }
 
 //// Tasks ///////////////////////////////////////////////////////////////////////////////////////
@@ -505,6 +523,9 @@ nav {
   @include mq("900px") {
     margin-left: 0;
     width: auto;
+  }
+  @include mq("1100px") {
+    width: 80%;
   }
 
   h2 {

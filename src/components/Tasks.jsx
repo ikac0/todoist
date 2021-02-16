@@ -39,7 +39,7 @@ export const Tasks = () => {
             {/* so we can tick them /check */}
             <Checkbox id={task.id} />
             {/* so we can display the content that we pull from the db */}
-            <span>{task.task}</span>
+            <span className="task__content">{task.task}</span>
           </li>
         ))}
       </ul>

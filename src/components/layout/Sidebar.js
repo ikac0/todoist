@@ -18,7 +18,11 @@ export const Sidebar = () => {
     <div className="sidebar">
       <ul className="sidebar__generic">
         <li
-          className={active === "inbox" ? "active" : undefined}
+          className={
+            active === "inbox"
+              ? "active sidebar__generic-li"
+              : "sidebar__generic-li"
+          }
           onClick={() => {
             setActive("inbox");
             setSelectedProject("INBOX");
@@ -30,7 +34,11 @@ export const Sidebar = () => {
           <span>Inbox</span>
         </li>
         <li
-          className={active === "today" ? "active" : undefined}
+          className={
+            active === "today"
+              ? "active sidebar__generic-li"
+              : "sidebar__generic-li"
+          }
           onClick={() => {
             setActive("today");
             setSelectedProject("TODAY");
@@ -42,7 +50,11 @@ export const Sidebar = () => {
           <span>Today</span>
         </li>
         <li
-          className={active === "next_7" ? "active" : undefined}
+          className={
+            active === "next_7"
+              ? "active sidebar__generic-li"
+              : "sidebar__generic-li"
+          }
           onClick={() => {
             setActive("next_7");
             setSelectedProject("NEXT_7");
