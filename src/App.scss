@@ -178,10 +178,10 @@ $generic-bg: #db4c3f;
       letter-spacing: 1px;
     }
   }
-}
 
-.task__content {
-  color: white;
+  .task__content {
+    color: white;
+  }
 }
 //// Header ////////////////////////////////////////////////////////////////////////////////////
 header {
@@ -527,8 +527,9 @@ nav {
   padding-bottom: 84px;
 
   @include mq("900px") {
-    margin-left: 0;
-    width: auto;
+    margin: auto;
+    // padding: 0;
+    width: 100%;
   }
   @include mq("1100px") {
     width: 80%;
