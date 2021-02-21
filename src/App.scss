@@ -147,6 +147,10 @@ $generic-bg: #db4c3f;
 
     li {
       color: white;
+
+      :hover {
+        background-color: rgb(54, 54, 54);
+      }
     }
   }
 
@@ -176,6 +180,9 @@ $generic-bg: #db4c3f;
   }
 }
 
+.task__content {
+  color: white;
+}
 //// Header ////////////////////////////////////////////////////////////////////////////////////
 header {
   border-bottom: solid 1px #ca2100;
@@ -339,7 +346,6 @@ nav {
     &.active,
     &:hover {
       font-weight: bold;
-      background-color: rgb(54, 54, 54);
     }
 
     &:nth-child(1) {
