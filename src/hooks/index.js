@@ -31,19 +31,19 @@ export const useTasks = (selectedProject) => {
         : unsubscribe;
 
     unsubscribe = unsubscribe.onSnapshot((snapshot) => {
-      const newTasks = snapshot.docs.map((x) => ({
-        id: x.id,
-        ...x.data(),
+      const newTasks = snapshot.docs.map((task) => ({
+        id: task.id,
+        ...task.data(),
       }));
       setTasks(
         selectedProject === "NEXT_7"
           ? newTasks.filter(
-              (x) =>
+              (task) =>
                 //make sure the difference in days is <= 7,
-                moment(x.date, "DD-MM-YYYY").diff(moment(), "days") <= 7 &&
-                x.archived !== true
+                moment(task.date, "DD-MM-YYYY").diff(moment(), "days") <= 7 &&
+                task.archived !== true
             )
-          : newTasks.filter((x) => x.archived === false)
+          : newTasks.filter((task) => task.archived === false)
       );
 
       setArchivedTasks(newTasks.filter((task) => task.archived === true));
@@ -65,9 +65,9 @@ export const useProjects = () => {
       .orderBy("projectId")
       .get() // so we get them only once, not like in the upper func.
       .then((snapshot) => {
-        const allProjects = snapshot.docs.map((x) => ({
-          ...x.data(),
-          docId: x.id,
+        const allProjects = snapshot.docs.map((snapshot) => ({
+          ...snapshot.data(),
+          docId: snapshot.id,
         }));
 
         // must keep the if statement so it won't re-run again and again infinitely, and we must be certain that the project has been changed, so THAN the useEffect hook to take action, fire off.
